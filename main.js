@@ -25,6 +25,11 @@ function framePreload (images) {
     })
 }
 
+function enterFullscreen () {
+    document.body.requestFullscreen()
+    $('#button-fullscreen').hide()
+}
+
 let frames = new Array()
 for (let i=frameStart; i<=frameStart + frameCount; ++i) {
     frames.push(`./src/Main_${i}.jpg`)

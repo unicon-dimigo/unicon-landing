@@ -4,6 +4,12 @@ body {
 }
 
 #main-img {
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
+}
+
+.button {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
 }
