@@ -64,3 +64,9 @@ $('.container').on('mousewheel', e => {
         }
     }
 })
+
+$('#main-img').bind('click', () => {
+    if (100000660 <= currentFrame && currentFrame <= 100000730) {
+        window.open('https://unicon-dimigo.github.io/aim-landing')
+    }
+})
