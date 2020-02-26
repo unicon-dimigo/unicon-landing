@@ -68,7 +68,7 @@ const uniFullpage = new fullpage('#fullpage', {
             return true
         }
 
-        if (origin.anchor === '2') {
+        if (origin.anchor === '2' && currentFrame <= 100000970) {
             currentFrame = frameStart + frameCount
             return true
         }
