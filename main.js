@@ -10,13 +10,6 @@ function update () {
     $('#main-img').attr('src', `./src/Main_${currentFrame}.jpg`)
 }
 
-function framePreload (images) {
-    images.forEach(value => {
-        let image = new Image()
-        image.src = value
-    })
-}
-
 function scrollBehavior (action) {
     for (let i=0; i<scrollSpeed; ++i) {
         action()
@@ -24,7 +17,13 @@ function scrollBehavior (action) {
     }
 }
 
-update()
+function framePreload (images) {
+    const length = images.length
+    images.forEach((value, index) => {
+        let image = new Image()
+        image.src = value
+    })
+}
 
 let frames = new Array()
 for (let i=frameStart; i<=frameStart + frameCount; ++i) {
@@ -32,7 +31,22 @@ for (let i=frameStart; i<=frameStart + frameCount; ++i) {
 }
 framePreload(frames)
 
+let loadStatus = 1000000000, loadFinish = false
+const loadHandler = setInterval(() => {
+    if (loadStatus <= 1000000060) {
+        $('#main-img').attr('src', `./src/Load_${loadStatus}.jpg`)
+    } else {
+        loadFinish = true
+    }
+    loadStatus++
+}, 100);
+setTimeout(() => {
+    clearInterval(loadHandler)
+}, 50000);
+
 $('.container').on('mousewheel', e => {
+    if (!loadFinish) return
+
     const wheel = e.originalEvent.wheelDelta
 
     if (wheel < 0) { // scroll up
