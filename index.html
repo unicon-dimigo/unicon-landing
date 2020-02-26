@@ -12,8 +12,40 @@
         >
             전체화면으로 보기
         </button>
-        <img id='main-img' src="./src/Load_1000000000.jpg">
+        <div id="fullpage">
+            <nav class="navigation">
+                UNICON
+                <span class="navigation-item">ANYTHINGBE</span>
+                <span class="navigation-item">UNIHACK</span>
+                <span class="navigation-item">MILESTONES</span>
+                <span class="navigation-item">MISSIONS</span>
+                <span class="navigation-item" onclick="changeFrame(660)">AIM</span>
+            </nav>
+            <div class="section" id="section0">
+                <img class='main-img' src="./src/Load_1000000000.jpg">
+            </div>
+            <div class="section" id="section1">
+                <h1>MEMBERS</h1>
+                <div class="member-wrapper">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                    <img class="member" src="jwy.png">
+                </div>
+            </div>
+            <div class="section" id="section2">
+                <img class='main-img' src="./src/Load_1000000000.jpg">
+            </div>
+        </div>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+        <script src="https://unicon-dimigo.github.io/aim-landing/assets/js/fullpage.min.js"></script>
         <script src='./main.js'></script>
     </body>
 </html>
