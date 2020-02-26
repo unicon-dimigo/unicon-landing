@@ -1,6 +1,6 @@
 const frameStart = 100000000,
     frameCount = 2062,
-    scrollSpeed = 2
+    scrollSpeed = 3
 
 let currentFrame = frameStart
 
