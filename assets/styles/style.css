@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/9ab8abd11c40ee5c8d1905f9c9cb9ac8?family=Futura);
+
 body {
   margin: 0;
   overflow: hidden;
@@ -9,20 +11,40 @@ body {
 }
 
 .navigation {
+  display: flex;
+  align-items: center;
   position: absolute;
-  padding: 10px;
+  padding: 10px 30px;
+  background-color: rgb(50, 50, 50);
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: 'Futura';
+  color: white;
+  justify-content: flex-end;
+}
+
+.brand {
+  height: 2rem;
+  margin-right: 3px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 30px;
 }
 
 .navigation-item {
-  float: right;
   margin-left: 10px;
 }
 
 #section1 {
+  /* position: relative; */
   display: flex;
   justify-content: center;
   background-color: black;
-  background-image: url('/assets/images/background.png') !important;
+  background-image: url('./assets/images/background.png') !important;
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
@@ -42,4 +64,46 @@ body {
 
 .member:hover {
   transform: scale(1.7);
+}
+
+#section3 {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Futura';
+  position: relative;
+}
+
+.logo {
+  height: 5rem;
+  width: auto;
+  display: inline-block;
+}
+
+.title {
+  padding: 30px 0 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-1 {
+  position: absolute;
+  left: 30px;
+  bottom: 150px;
+}
+
+.contact-2 {
+  position: absolute;
+  right: 30px;
+  bottom: 90px;
+  float: right;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 10px;
 }

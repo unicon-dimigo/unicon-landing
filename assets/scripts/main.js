@@ -9,7 +9,7 @@ let currentFrame = frameStart
 function update() {
   if (currentFrame > frameStart + frameCount) currentFrame = frameStart + frameCount
   if (currentFrame < frameStart) currentFrame = frameStart
-  $('.main-img').attr('src', `/src/Main_${currentFrame}.jpg`)
+  $('.main-img').attr('src', `./src/Main_${currentFrame}.jpg`)
 }
 
 function scrollBehavior(action) {
@@ -28,26 +28,27 @@ function framePreload(images) {
 }
 
 function changeFrame(frame) {
+  if (!loadFinish) return
   currentFrame = frameStart + frame
   update()
 }
 
 let frames = new Array()
 for (let i = frameStart; i <= frameStart + frameCount; ++i) {
-  frames.push(`/src/Main_${i}.jpg`)
+  frames.push(`./src/Main_${i}.jpg`)
 }
 framePreload(frames)
 
 frames = new Array()
 for (let i = frameStart * 10; i <= frameStart * 10 + loadCount; ++i) {
-  frames.push(`/src/Load_${i}.jpg`)
+  frames.push(`./src/Load_${i}.jpg`)
 }
 framePreload(frames)
 
 let loadStatus = frameStart * 10, loadFinish = false
 const loadHandler = setInterval(() => {
   if (loadStatus <= frameStart * 10 + loadCount) {
-    $('.main-img').attr('src', `/src/Load_${loadStatus}.jpg`)
+    $('.main-img').attr('src', `./src/Load_${loadStatus}.jpg`)
   } else {
     loadFinish = true
   }
@@ -58,7 +59,7 @@ setTimeout(() => {
 }, 50000);
 
 const uniFullpage = new fullpage('#fullpage', {
-  anchors: ['0', '1', '2'],
+  anchors: ['0', '1', '2', '3'],
   onLeave(origin, destination, direction) {
     if (origin.anchor === '0' && 100000960 <= currentFrame) {
       scrollEnabled = false
@@ -72,6 +73,15 @@ const uniFullpage = new fullpage('#fullpage', {
 
     if (origin.anchor === '2' && currentFrame <= 100000970) {
       currentFrame = frameStart + frameCount
+      return true
+    }
+
+    if (origin.anchor === '2' && currentFrame === 100002062) {
+      return true
+    }
+
+    if (origin.anchor === '3') {
+      currentFrame = 100002062
       return true
     }
     return false
@@ -95,7 +105,10 @@ $('body').on('mousewheel', e => {
 })
 
 $('.main-img').bind('click', () => {
-  if (100000660 <= currentFrame && currentFrame <= 100000730) {
+  if (100000660 <= currentFrame && currentFrame <= 100000725) {
     window.open('https://unicon-dimigo.github.io/aim-landing')
+  }
+  if (100000860 <= currentFrame && currentFrame <= 100000962) {
+    window.open('https://unicon-dimigo.github.io/anyhack-landing')
   }
 })
