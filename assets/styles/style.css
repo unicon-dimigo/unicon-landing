@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-img {
+  height: 100vh;
+  width: 100vw;
+}
+
+.navigation {
+  position: absolute;
+  padding: 10px;
+}
+
+.navigation-item {
+  float: right;
+  margin-left: 10px;
+}
+
+#section1 {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  background-image: url('/assets/images/background.png') !important;
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.member-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.member {
+  width: 15rem;
+  transition: 0.5s;
+}
+
+.member:hover {
+  transform: scale(1.7);
+}
