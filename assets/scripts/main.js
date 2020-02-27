@@ -108,7 +108,10 @@ $('.main-img').bind('click', () => {
   if (100000660 <= currentFrame && currentFrame <= 100000725) {
     window.open('https://unicon-dimigo.github.io/aim-landing')
   }
+  if (100000750 <= currentFrame && currentFrame <= 100000840) {
+    window.open('https://unicon-dimigo.github.io/anythingbe-landing')
+  }
   if (100000860 <= currentFrame && currentFrame <= 100000962) {
-    window.open('https://unicon-dimigo.github.io/anyhack-landing')
+    window.open('https://unicon-dimigo.github.io/unihack-landing')
   }
 })
