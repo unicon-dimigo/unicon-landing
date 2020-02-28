@@ -1,6 +1,6 @@
 const frameStart = 100000000,
   frameCount = 2062,
-  scrollSpeed = 3,
+  scrollSpeed = 4,
   loadCount = 59
 let scrollEnabled = true
 
