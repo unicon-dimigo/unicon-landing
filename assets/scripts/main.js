@@ -33,6 +33,21 @@ function changeFrame(frame) {
   update()
 }
 
+setInterval(function(){
+    if(100000660 <= currentFrame && currentFrame <= 100000725){
+        $('html').css({'cursor': 'pointer'});
+    }
+    else if(100000750 <= currentFrame && currentFrame <= 100000840){
+        $('html').css({'cursor': 'pointer'});
+    }
+    else if(100000860 <= currentFrame && currentFrame <= 100000962){
+        $('html').css({'cursor': 'pointer'});
+    }
+    else{
+        $('html').css({'cursor': 'default'});
+    }
+}, 250);
+
 let frames = new Array()
 for (let i = frameStart; i <= frameStart + frameCount; ++i) {
   frames.push(`./src/Main_${i}.jpg`)
