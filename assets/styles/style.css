@@ -44,17 +44,21 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
-  background-image: url('./assets/images/background.png') !important;
+  background-image: url('../images/background.png') !important;
   background-position: bottom;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  color: white;
+  font-family: 'Futura';
 }
 
 .member-wrapper {
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   grid-auto-rows: minmax(100px, auto);
+  color: white;
 }
 
 .member {
@@ -62,8 +66,23 @@ body {
   transition: 0.5s;
 }
 
+.category-wrapper {
+  position: relative;
+}
+
+.category {
+  width: max-content;
+  display: inline-block;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 0;
+}
+
 .member:hover {
-  transform: scale(1.7);
+  transform: scale(2);
 }
 
 #section3 {
