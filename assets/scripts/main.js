@@ -3,13 +3,15 @@ const frameStart = 100000000,
   scrollSpeed = 3,
   loadCount = 59
 let scrollEnabled = true
-
+var main_img = $('.main-img')
+var cursor_html = $('html')
+var body = $('body')
 let currentFrame = frameStart
 
 function update() {
   if (currentFrame > frameStart + frameCount) currentFrame = frameStart + frameCount
   if (currentFrame < frameStart) currentFrame = frameStart
-  $('.main-img').attr('src', `./src/Main_${currentFrame}.jpg`)
+  main_img.attr('src', `./src/Main_${currentFrame}.jpg`)
 }
 
 function scrollBehavior(action) {
@@ -35,10 +37,10 @@ function changeFrame(frame) {
 
 function checkFrame(currentFrame){
   if((100000660 <= currentFrame && currentFrame <= 100000725)||(100000750 <= currentFrame && currentFrame <= 100000840)||(100000860 <= currentFrame && currentFrame <= 100000962)){
-      $('html').css({'cursor': 'pointer'});
+      cursor_html.css({'cursor': 'pointer'});
   }
   else{
-      $('html').css({'cursor': 'default'});
+      cursor_html.css({'cursor': 'default'});
   }
 }
 
@@ -59,7 +61,7 @@ framePreload(frames)
 let loadStatus = frameStart * 10, loadFinish = false
 const loadHandler = setInterval(() => {
   if (loadStatus <= frameStart * 10 + loadCount) {
-    $('.main-img').attr('src', `./src/Load_${loadStatus}.jpg`)
+    main_img.attr('src', `./src/Load_${loadStatus}.jpg`)
   } else {
     loadFinish = true
   }
@@ -99,7 +101,7 @@ const uniFullpage = new fullpage('#fullpage', {
   }
 })
 
-$('body').on('mousewheel', e => {
+body.on('mousewheel', e => {
   if (!loadFinish || !scrollEnabled) return
 
   const wheel = e.originalEvent.wheelDelta
@@ -115,7 +117,7 @@ $('body').on('mousewheel', e => {
   }
 })
 
-$('.main-img').bind('click', () => {
+main_img.bind('click', () => {
   if (100000660 <= currentFrame && currentFrame <= 100000725) {
     window.open('https://unicon-dimigo.github.io/aim-landing')
   }
