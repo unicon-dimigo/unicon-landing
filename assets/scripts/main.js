@@ -33,20 +33,15 @@ function changeFrame(frame) {
   update()
 }
 
-setInterval(function(){
-    if(100000660 <= currentFrame && currentFrame <= 100000725){
-        $('html').css({'cursor': 'pointer'});
-    }
-    else if(100000750 <= currentFrame && currentFrame <= 100000840){
-        $('html').css({'cursor': 'pointer'});
-    }
-    else if(100000860 <= currentFrame && currentFrame <= 100000962){
-        $('html').css({'cursor': 'pointer'});
-    }
-    else{
-        $('html').css({'cursor': 'default'});
-    }
-}, 250);
+function checkFrame(currentFrame){
+  if((100000660 <= currentFrame && currentFrame <= 100000725)||(100000750 <= currentFrame && currentFrame <= 100000840)||(100000860 <= currentFrame && currentFrame <= 100000962)){
+      $('html').css({'cursor': 'pointer'});
+  }
+  else{
+      $('html').css({'cursor': 'default'});
+  }
+}
+
 
 let frames = new Array()
 for (let i = frameStart; i <= frameStart + frameCount; ++i) {
@@ -59,6 +54,7 @@ for (let i = frameStart * 10; i <= frameStart * 10 + loadCount; ++i) {
   frames.push(`./src/Load_${i}.jpg`)
 }
 framePreload(frames)
+
 
 let loadStatus = frameStart * 10, loadFinish = false
 const loadHandler = setInterval(() => {
@@ -107,7 +103,7 @@ $('body').on('mousewheel', e => {
   if (!loadFinish || !scrollEnabled) return
 
   const wheel = e.originalEvent.wheelDelta
-
+  checkFrame(currentFrame)
   if (wheel < 0) { // scroll up
     for (let i = 0; i < scrollSpeed; ++i) {
       scrollBehavior(() => { currentFrame++ })
