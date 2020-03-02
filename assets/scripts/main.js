@@ -3,10 +3,11 @@ const frameStart = 100000000,
   scrollSpeed = 3,
   loadCount = 59
 let scrollEnabled = true
-var main_img = $('.main-img')
-var cursor_html = $('html')
-var body = $('body')
+let main_img = $('.main-img')
+let cursor_html = $('html')
+let body = $('body')
 let currentFrame = frameStart
+let forced = false
 
 function update() {
   if (currentFrame > frameStart + frameCount) currentFrame = frameStart + frameCount
@@ -74,6 +75,12 @@ setTimeout(() => {
 const uniFullpage = new fullpage('#fullpage', {
   anchors: ['0', '1', '2', '3'],
   onLeave(origin, destination, direction) {
+    if (!loadFinish) return false
+    if (forced) {
+      forced = false
+      return true
+    }
+
     if (origin.anchor === '0' && 100000960 <= currentFrame) {
       scrollEnabled = false
       return true
