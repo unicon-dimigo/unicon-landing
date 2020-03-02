@@ -135,3 +135,11 @@ main_img.bind('click', () => {
     window.open('https://unicon-dimigo.github.io/unihack-landing')
   }
 })
+
+window.onload = function() {
+    var filter = "win16|win32|win64|mac";
+
+    if (navigator.platform && filter.indexOf(navigator.platform.toLowerCase()) = 0) {
+        alert("모바일 기기에서 접속하셨습니다.\n기기를 가로로 회전시켜주세요.");
+    }
+}
