@@ -3,13 +3,16 @@ const frameStart = 100000000,
   scrollSpeed = 3,
   loadCount = 59
 let scrollEnabled = true
-
+let main_img = $('.main-img')
+let cursor_html = $('html')
+let body = $('body')
 let currentFrame = frameStart
+let forced = false
 
 function update() {
   if (currentFrame > frameStart + frameCount) currentFrame = frameStart + frameCount
   if (currentFrame < frameStart) currentFrame = frameStart
-  $('.main-img').attr('src', `./src/Main_${currentFrame}.jpg`)
+  main_img.attr('src', `./src/Main_${currentFrame}.jpg`)
 }
 
 function scrollBehavior(action) {
@@ -35,10 +38,10 @@ function changeFrame(frame) {
 
 function checkFrame(currentFrame){
   if((100000660 <= currentFrame && currentFrame <= 100000725)||(100000750 <= currentFrame && currentFrame <= 100000840)||(100000860 <= currentFrame && currentFrame <= 100000962)){
-      $('html').css({'cursor': 'pointer'});
+      cursor_html.css({'cursor': 'pointer'});
   }
   else{
-      $('html').css({'cursor': 'default'});
+      cursor_html.css({'cursor': 'default'});
   }
 }
 
@@ -59,7 +62,7 @@ framePreload(frames)
 let loadStatus = frameStart * 10, loadFinish = false
 const loadHandler = setInterval(() => {
   if (loadStatus <= frameStart * 10 + loadCount) {
-    $('.main-img').attr('src', `./src/Load_${loadStatus}.jpg`)
+    main_img.attr('src', `./src/Load_${loadStatus}.jpg`)
   } else {
     loadFinish = true
   }
@@ -72,6 +75,12 @@ setTimeout(() => {
 const uniFullpage = new fullpage('#fullpage', {
   anchors: ['0', '1', '2', '3'],
   onLeave(origin, destination, direction) {
+    if (!loadFinish) return false
+    if (forced) {
+      forced = false
+      return true
+    }
+
     if (origin.anchor === '0' && 100000960 <= currentFrame) {
       scrollEnabled = false
       return true
@@ -99,7 +108,7 @@ const uniFullpage = new fullpage('#fullpage', {
   }
 })
 
-$('body').on('mousewheel', e => {
+body.on('mousewheel', e => {
   if (!loadFinish || !scrollEnabled) return
 
   const wheel = e.originalEvent.wheelDelta
@@ -115,7 +124,7 @@ $('body').on('mousewheel', e => {
   }
 })
 
-$('.main-img').bind('click', () => {
+main_img.bind('click', () => {
   if (100000660 <= currentFrame && currentFrame <= 100000725) {
     window.open('https://unicon-dimigo.github.io/aim-landing')
   }

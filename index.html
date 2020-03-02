@@ -34,9 +34,12 @@
           <img class="brand" src="assets/images/logo2.png">
           UNICON
         </div>
-        <span class='navigation-item' onclick='changeFrame(693)'>AIM</span>
-        <span class='navigation-item' onclick='changeFrame(820)'>ANYTHINGBE</span>
-        <span class='navigation-item' onclick='changeFrame(924)'>UNIHACK</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(0); changeFrame(693);'>AIM</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(0); changeFrame(820);'>ANYTHINGBE</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(0); changeFrame(924);'>UNIHACK</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(1);'>MEMBERS</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(2); changeFrame(1014);'>MILESTONE</span>
+        <span class='navigation-item' onclick='if(!loadFinish) {return} forced=true; fullpage_api.moveTo(2); changeFrame(1827);'>MISSION</span>
       </nav>
       <img class='main-img' src='./src/Load_1000000000.jpg'>
     </div>
@@ -74,8 +77,14 @@
           <img class="brand" src="assets/images/logo2.png">
           UNICON
         </div>
-        <span class='navigation-item' onclick='changeFrame(1014)'>MILESTONE</span>
-        <span class='navigation-item' onclick='changeFrame(1827)'>MISSION</span>
+        <nav>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(0); changeFrame(693);'>AIM</span>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(0); changeFrame(820);'>ANYTHINGBE</span>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(0); changeFrame(924);'>UNIHACK</span>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(1);'>MEMBERS</span>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(2); changeFrame(1014);'>MILESTONE</span>
+          <span class='navigation-item' onclick='forced=true; fullpage_api.moveTo(2); changeFrame(1827);'>MISSION</span>
+        </nav>
       </nav>
       <img class='main-img' src='./src/Load_1000000000.jpg'>
     </div>
