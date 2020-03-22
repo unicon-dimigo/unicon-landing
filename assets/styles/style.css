@@ -15,7 +15,7 @@ body {
   align-items: center;
   position: absolute;
   padding: 10px 30px;
-  background-color: rgb(50, 50, 50);
+  background-color: rgba(50, 50, 50, 0.80);
   width: 100vw;
   box-sizing: border-box;
   font-family: 'Futura';
@@ -40,8 +40,12 @@ body {
   cursor: pointer;
 }
 
+.navigation-item:not(:last-child) {
+  padding-right: 10px;
+  border-right: 2.7px solid white;
+}
+
 #section1 {
-  /* position: relative; */
   display: flex;
   justify-content: center;
   background-color: black;
