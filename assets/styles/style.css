@@ -15,7 +15,7 @@ body {
   align-items: center;
   position: absolute;
   padding: 10px 30px;
-  background-color: rgba(50, 50, 50, 0.80);
+  background-color: rgba(50, 50, 50, 0);
   width: 100vw;
   box-sizing: border-box;
   font-family: 'Futura';
@@ -24,7 +24,7 @@ body {
 }
 
 .brand {
-  height: 2rem;
+  height: 1.7rem;
   margin-right: 3px;
 }
 
@@ -42,7 +42,7 @@ body {
 
 .navigation-item:not(:last-child) {
   padding-right: 10px;
-  border-right: 2.7px solid white;
+  border-right: 3.5px solid white;
 }
 
 #section1 {
